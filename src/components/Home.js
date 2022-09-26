@@ -1,11 +1,12 @@
 import React from 'react'
-import './Home.css'
-const Home = () => {
+const Home = (props) => {
+    console.log("props", props)
     return (
         <div>
-            <div className='add-to-cart'>
+            {/* <div className='add-to-cart'>
+                <span className='cart-count'>{props.data.length}</span>
                 <img src='https://cdn0.iconfinder.com/data/icons/e-commerce-vol-2/512/1-512.png' />
-            </div>
+            </div> */}
             <h1>Home Component</h1>
             <div className='cart-wrapper'>
                 <div className='image-wrapper item'>
@@ -20,7 +21,8 @@ const Home = () => {
                     </span>
                 </div>
                 <div className='btn-wrapper item'>
-                    <button>Add to cart</button>
+                    <button onClick={() => {props.addToCartHandler({ price: 1000, name: 'Oppo' })}}>Add to cart</button>
+                    <button className='remove-cart-btn' onClick={() => {props.removeToCartHandler({ price: 1000, name: 'Oppo' })}}>Remove to cart</button>
                 </div>
             </div>
         </div>
